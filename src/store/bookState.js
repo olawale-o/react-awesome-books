@@ -12,3 +12,11 @@ export const initialState = {
     },
   ]
 };
+
+export const initialBooks = [
+  {
+    id: 1,
+    title: 'kings men',
+    author: 'wale',
+  },
+];

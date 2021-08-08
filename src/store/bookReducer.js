@@ -1,9 +1,13 @@
-export default function bookReducer(state, action) {
+export const init = (initialBooks) => ({ books: initialBooks })
+
+export const bookReducer = (state, action) => {
   switch(action.type) {
     case 'allBooks':
-      return { state };
+      return { books: state.books };
     case 'addBook':
       return { books: [ ...state.books, action.payload ] };
+    case 'emptyBooks':
+      return init(action.payload);
     default:
       throw new Error('wahala')
   }
