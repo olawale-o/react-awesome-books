@@ -1,7 +1,12 @@
-import { useState } from "react";
-const AddBook = ({ AddBookToStore }) => {
+import { useState, useRef } from "react";
+// import { BookContext } from "../contextProvider/bookProvider";
+const AddBook = ({ addBookToStore }) => {
+  // This works if you switch to context provider
+  // const [ , dispatch] = useContext(BookContext);
+
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
+  const titleField = useRef(null);
 
   const handleAuthor = (event) => {
     setAuthor(event.target.value);
@@ -12,10 +17,13 @@ const AddBook = ({ AddBookToStore }) => {
   }
 
   const handleSubmit = (event) => {
-    AddBookToStore({ title, author })
+    event.preventDefault();
+    addBookToStore({ title, author });
+   // use this when you switch to react context
+   // dispatch({ type: 'addBook', payload: {id: 3, title, author } });
     setTitle('');
     setAuthor('');
-    event.preventDefault();
+    titleField.current.focus();
   }
 
   return (
@@ -23,11 +31,11 @@ const AddBook = ({ AddBookToStore }) => {
       <h2>Add a new book</h2>
       <form className="add-book-form" id="add-book-form" onSubmit={handleSubmit}>
         <div>
-          <input type="text" name="title" value={title} placeholder="Title" required onChange={handleTitle} />
+          <input type="text" ref={titleField} value={title} placeholder="Title" required onChange={handleTitle} />
           <p id="title-error"></p>
         </div>
         <div>
-          <input type="text" name="author" value={author} placeholder="Author" required onChange={handleAuthor} />
+          <input type="text" value={author} placeholder="Author" required onChange={handleAuthor} />
           <p id="author-error"></p>
         </div>
         <input type="submit" value="Add" id="add-book-button" />
