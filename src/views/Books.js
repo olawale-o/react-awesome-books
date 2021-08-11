@@ -30,9 +30,9 @@ const Books = () => {
   return (
     <>
       <BookContext.Provider value={[state, dispatch]}>
-        <Header toggle={toggle} onToggle={onToggle}/>
-        <BookList books={books} />
-        <AddBook addBookToStore={addBookToStore} />
+        <Header toggle={toggle} onToggle={onToggle} />
+        <BookList books={books} toggle={toggle} />
+        <AddBook addBookToStore={addBookToStore} toggle={toggle} />
       </BookContext.Provider>
     </>
   )
