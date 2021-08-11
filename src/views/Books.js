@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react'
+import React, { useReducer, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import BookList from '../components/BookList.js';
 import AddBook from '../components/AddBook.js';
@@ -10,7 +10,8 @@ import { selectBooks, totalBooks } from '../reduxStore/selectors/booksSelector';
 import Header from '../components/Header.js';
 
 const Books = () => {
-  const [ state, dispatch ] = useReducer(bookReducer, initialState);
+  const [state, dispatch] = useReducer(bookReducer, initialState);
+  const [toggle, setToggle] = useState(1);
   const books = useSelector(selectBooks);
   const booksLen = useSelector(totalBooks);
   const dispatchAction = useDispatch();
@@ -22,10 +23,14 @@ const Books = () => {
 
   // Use this when an init function is passed as a params to to useReducer
   // const emptyBooks = () => dispatch({type: 'emptyBooks', payload: [] });
+
+  const onToggle = (index) => {
+    setToggle(index);
+  }
   return (
     <>
       <BookContext.Provider value={[state, dispatch]}>
-        <Header />
+        <Header toggle={toggle} onToggle={onToggle}/>
         <BookList books={books} />
         <AddBook addBookToStore={addBookToStore} />
       </BookContext.Provider>
