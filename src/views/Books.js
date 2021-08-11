@@ -7,6 +7,7 @@ import { initialState } from '../store/bookState.js';
 import { BookContext } from '../contextProvider/bookProvider.js';
 import { addBook } from '../reduxStore/actions/action_creators.js';
 import { selectBooks, totalBooks } from '../reduxStore/selectors/booksSelector';
+import Header from '../components/Header.js';
 
 const Books = () => {
   const [ state, dispatch ] = useReducer(bookReducer, initialState);
@@ -23,6 +24,7 @@ const Books = () => {
   // const emptyBooks = () => dispatch({type: 'emptyBooks', payload: [] });
   return (
     <div>
+      <Header />
       <BookContext.Provider value={[state, dispatch]}>
         <BookList books={books} />
         <AddBook addBookToStore={addBookToStore} />
