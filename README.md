@@ -7,6 +7,9 @@
 - CSS
 - REACTJS
 
+# Screenshot
+![screenshot](https://github.com/olawale-o/react-awesome-books/blob/main/src/assets/screenshot.png?raw=true")
+
 # Getting started
 
 ## To get a local copy of this repository kindly follow the steps below.
