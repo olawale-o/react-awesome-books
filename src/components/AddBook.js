@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 // import { BookContext } from "../contextProvider/bookProvider";
-const AddBook = ({ addBookToStore }) => {
+const AddBook = ({ addBookToStore, toggle }) => {
   // This works if you switch to context provider
   // const [ , dispatch] = useContext(BookContext);
 
@@ -27,7 +27,7 @@ const AddBook = ({ addBookToStore }) => {
   }
 
   return (
-    <div className="form" id="form">
+    <div className={ toggle === 2 ? "form" : "form hide" } id="form">
       <h2>Add a new book</h2>
       <form className="add-book-form" id="add-book-form" onSubmit={handleSubmit}>
         <div>
