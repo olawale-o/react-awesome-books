@@ -1,10 +1,10 @@
 import Book from './Book.js';
 
 
-const BookList = ({ books, toggle }) => {
+const BookList = ({ books, toggle, removeBook }) => {
 
   const bookList = books.map(({ id, title, author }) => 
-    <Book key = {id} title = {title} author = { author } /> );
+    <Book key = {id} title = {title} author = {author} id ={id} removeBook={removeBook} /> );
   return (
     <div className={toggle === 1 ? "books" : "books hide"}>
       <div className="book-heading">
