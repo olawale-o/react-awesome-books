@@ -23,13 +23,13 @@ const Books = () => {
   // Use this when an init function is passed as a params to to useReducer
   // const emptyBooks = () => dispatch({type: 'emptyBooks', payload: [] });
   return (
-    <div>
-      <Header />
+    <>
       <BookContext.Provider value={[state, dispatch]}>
+        <Header />
         <BookList books={books} />
         <AddBook addBookToStore={addBookToStore} />
       </BookContext.Provider>
-    </div>
+    </>
   )
 }
 
