@@ -1,4 +1,4 @@
-const Book = ({ title, author }) => {
+const Book = ({ id, title, author, removeBook }) => {
   return (
     <li id="book-id" className="book-item">
      <div className="book">
@@ -7,7 +7,7 @@ const Book = ({ title, author }) => {
         <span className="by">By</span>
         <p className="authour">{ author }</p>
       </div>
-      <button className="btn">Remove</button>
+      <button className="btn" onClick={() => removeBook(id)}>Remove</button>
      </div>
    </li>  
   )
