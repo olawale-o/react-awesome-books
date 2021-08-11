@@ -1,7 +1,7 @@
 import React from 'react'
 import Tab from './Tab';
 
-const Header = () => {
+const Header = ({ toggle, onToggle }) => {
     const links = [
       {
         id: 1,
@@ -16,7 +16,7 @@ const Header = () => {
         name: 'Contact',
       },
     ];
-    const tabs = links.map(({id, name}) => <Tab id={id} name={name} key={id} />)
+    const tabs = links.map(({id, name}) => <Tab id={id} name={name} key={id} toggle={toggle} onToggle={onToggle} />)
     return (
         <header className="header">
           <nav className="nav">
