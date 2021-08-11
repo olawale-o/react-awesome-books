@@ -9,6 +9,7 @@ import { addBook, removeBook } from '../reduxStore/actions/action_creators.js';
 import { selectBooks, totalBooks } from '../reduxStore/selectors/booksSelector';
 import Header from '../components/Header.js';
 import Contact from '../components/Contact.js';
+import Footer from '../components/Footer.js';
 
 const Books = () => {
   const [state, dispatch] = useReducer(bookReducer, initialState);
@@ -44,6 +45,7 @@ const Books = () => {
             <Contact toggle={toggle} />
           </section>
         </main>
+        <Footer />
       </BookContext.Provider>
     </>
   )
