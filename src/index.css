@@ -38,7 +38,7 @@ input[type="submit"] {
   padding: 5px;
 }
 
-#app {
+.App {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
