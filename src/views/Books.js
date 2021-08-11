@@ -8,6 +8,7 @@ import { BookContext } from '../contextProvider/bookProvider.js';
 import { addBook } from '../reduxStore/actions/action_creators.js';
 import { selectBooks, totalBooks } from '../reduxStore/selectors/booksSelector';
 import Header from '../components/Header.js';
+import Contact from '../components/Contact.js';
 
 const Books = () => {
   const [state, dispatch] = useReducer(bookReducer, initialState);
@@ -33,6 +34,7 @@ const Books = () => {
         <Header toggle={toggle} onToggle={onToggle} />
         <BookList books={books} toggle={toggle} />
         <AddBook addBookToStore={addBookToStore} toggle={toggle} />
+        <Contact toggle={toggle} />
       </BookContext.Provider>
     </>
   )
