@@ -1,5 +1,5 @@
 import './App.css';
-import Books from './views/Books.js';
+import Books from './views/Books';
 
 function App() {
   return (

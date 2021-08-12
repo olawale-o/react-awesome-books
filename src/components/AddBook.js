@@ -1,7 +1,8 @@
-import { useState, useRef, useContext } from "react";
+import { useState, useRef, useContext } from 'react';
+import PropTypes from 'prop-types';
+import BookContext from '../contextProvider/bookProvider';
 
-import { BookContext } from "../contextProvider/bookProvider";
-const AddBook = ({ addBookToStore, }) => {
+const AddBook = ({ addBookToStore }) => {
   // This works if you switch to context provider
   // const [ , dispatch] = useContext(BookContext);
   const { toggle } = useContext(BookContext);
@@ -15,34 +16,38 @@ const AddBook = ({ addBookToStore, }) => {
 
   const handleTitle = (event) => {
     setTitle(event.target.value);
-  }
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
     addBookToStore({ title, author });
-   // use this when you switch to react context
-   // dispatch({ type: 'addBook', payload: {id: 3, title, author } });
+    // use this when you switch to react context
+    // dispatch({ type: 'addBook', payload: {id: 3, title, author } });
     setTitle('');
     setAuthor('');
     titleField.current.focus();
-  }
+  };
 
   return (
-    <div className={ toggle === 2 ? "form" : "form hide" } id="form">
+    <div className={toggle === 2 ? 'form' : 'form hide'} id="form">
       <h2>Add a new book</h2>
       <form className="add-book-form" id="add-book-form" onSubmit={handleSubmit}>
         <div>
           <input type="text" ref={titleField} value={title} placeholder="Title" required onChange={handleTitle} />
-          <p id="title-error"></p>
+          <p id="title-error" />
         </div>
         <div>
           <input type="text" value={author} placeholder="Author" required onChange={handleAuthor} />
-          <p id="author-error"></p>
+          <p id="author-error" />
         </div>
         <input type="submit" value="Add" id="add-book-button" />
       </form>
     </div>
-  )
-}
+  );
+};
 
 export default AddBook;
+
+AddBook.propTypes = {
+  addBookToStore: PropTypes.func.isRequired,
+};

@@ -10,7 +10,7 @@ export const initialState = {
       title: 'Art of war',
       author: 'sun tzu',
     },
-  ]
+  ],
 };
 
 export const initialBooks = [
