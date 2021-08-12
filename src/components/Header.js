@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Tab from './Tab';
+import { DateTime } from 'luxon';
+import numberSuffix from '../helpers/index';
 
 const Header = ({ toggle, onToggle }) => {
+  const [date, setDate] = useState(null);
     const links = [
       {
         id: 1,
@@ -17,6 +20,18 @@ const Header = ({ toggle, onToggle }) => {
       },
     ];
     const tabs = links.map(({id, name}) => <Tab id={id} name={name} key={id} toggle={toggle} onToggle={onToggle} />)
+    useEffect(() => {
+      const interval = setInterval(() => {
+        const today = DateTime.local();
+        const format = { ...DateTime.DATETIME_MED_WITH_SECONDS, month: 'long' };
+        const modifiedDate = today.toLocaleString(format).split(' ');
+        const dayNumber = parseInt(modifiedDate[1], 10);
+        modifiedDate[1] = dayNumber + numberSuffix(dayNumber);
+        modifiedDate[modifiedDate.length - 1] = (modifiedDate[modifiedDate.length - 1]).toLowerCase();
+        setDate(modifiedDate.join(' '));
+      }, 1000);
+      return () => clearInterval(interval);
+    }, [])
     return (
         <header className="header">
           <nav className="nav">
@@ -25,7 +40,7 @@ const Header = ({ toggle, onToggle }) => {
             </div>
             <ul className="nav-list" id="nav-list">{tabs}</ul>
           </nav>
-            <p className="date" id="date"></p>
+            <p className="date" id="date">{date}</p>
         </header>
             
     );
