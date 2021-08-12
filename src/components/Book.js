@@ -18,7 +18,7 @@ const Book = ({
 export default Book;
 
 Book.propTypes = {
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   author: PropTypes.string.isRequired,
   removeBook: PropTypes.func.isRequired,
