@@ -3,7 +3,7 @@ import Tab from './Tab';
 import { DateTime } from 'luxon';
 import numberSuffix from '../helpers/index';
 
-const Header = ({ toggle, onToggle }) => {
+const Header = () => {
   const [date, setDate] = useState(null);
     const links = [
       {
@@ -19,7 +19,7 @@ const Header = ({ toggle, onToggle }) => {
         name: 'Contact',
       },
     ];
-    const tabs = links.map(({id, name}) => <Tab id={id} name={name} key={id} toggle={toggle} onToggle={onToggle} />)
+    const tabs = links.map(({id, name}) => <Tab id={id} name={name} key={id} />)
     useEffect(() => {
       const interval = setInterval(() => {
         const today = DateTime.local();
