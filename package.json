@@ -2,6 +2,7 @@
   "name": "react-awesome-books",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://olawale-o/react-awesome-books",
   "dependencies": {
     "@reduxjs/toolkit": "^1.6.1",
     "@testing-library/jest-dom": "^5.14.1",
@@ -18,7 +19,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && rm -rf docs && mv build docs",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "eslint": "eslint ."
