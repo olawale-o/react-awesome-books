@@ -6,6 +6,7 @@
 
 - CSS
 - REACTJS
+- REDUX
 
 # Screenshot
 ![screenshot](https://github.com/olawale-o/react-awesome-books/blob/main/src/assets/screenshot.png?raw=true")
@@ -20,6 +21,17 @@
 - Type `git clone (copied link)` on the currently opened terminal or command prompt
 - Remember to change `(copied link)` to `git@github.com:olawale-o/react-awesome-books.git` which is the name of the repository
 
+# Install
+
+```bash
+npm install
+```
+
+# Usage
+
+```bash
+napm start
+```
 # Authors
 
 :bust_in_silhouette: Omoogun Olawale
