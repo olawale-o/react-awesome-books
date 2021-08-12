@@ -32,7 +32,6 @@ const Books = () => {
 
   const onRemoveBook = (bookId) => {
     dispatchAction(removeBook(bookId));
-    console.log(booksLen)
   };
 
   const state = {
@@ -42,12 +41,12 @@ const Books = () => {
   return (
     <>
       <BookContext.Provider value={state}>
-        <Header toggle={toggle} />
+        <Header />
         <main>
           <section>
-            <BookList books={books} toggle={toggle} removeBook= {onRemoveBook} />
-            <AddBook addBookToStore={addBookToStore} toggle={toggle} />
-            <Contact toggle={toggle} />
+            <BookList books={books} removeBook= {onRemoveBook} />
+            <AddBook addBookToStore={addBookToStore} />
+            <Contact />
           </section>
         </main>
         <Footer />

@@ -1,9 +1,10 @@
-import { useState, useRef } from "react";
-// import { BookContext } from "../contextProvider/bookProvider";
-const AddBook = ({ addBookToStore, toggle }) => {
+import { useState, useRef, useContext } from "react";
+
+import { BookContext } from "../contextProvider/bookProvider";
+const AddBook = ({ addBookToStore, }) => {
   // This works if you switch to context provider
   // const [ , dispatch] = useContext(BookContext);
-
+  const { toggle } = useContext(BookContext);
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
   const titleField = useRef(null);
