@@ -12,7 +12,7 @@
 ![screenshot](https://github.com/olawale-o/react-awesome-books/blob/main/src/assets/screenshot.png?raw=true")
 
 # Demo Link
-Visit [link](https://olawale-o.github.io/react-awesome-books/)
+Visit [link](https://www.linkedin.com/in/olawaleomoogun/)
 
 # Getting started
 
